@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameOver : MonoBehaviour
 {
     public GameObject Gameover;
-    public GameObject Ball;
     public GameObject FinalScore;
 
     // Start is called before the first frame update
@@ -17,10 +16,16 @@ public class GameOver : MonoBehaviour
 
         if (collision.gameObject.name == "Down")
         {
-            ScoreText.text = "당신의 점수 : " + Score.score;
-            Player.Control = false;
-            Gameover.SetActive(true);
-            Destroy(Ball);
+            Destroy(gameObject);
+            Player.Ballcount-=1;
+            if (Player.Ballcount == 0)
+            {
+                ScoreText.text = "당신의 점수 : " + Score.score;
+                Player.Control = false;
+                StartPanel.timeflag = false;
+                Gameover.SetActive(true);
+                Player.Ballcount = 1;
+            }
         }
     }
     // Update is called once per frame

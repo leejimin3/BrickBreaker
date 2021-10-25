@@ -8,7 +8,7 @@ public class TextTimer : MonoBehaviour
     public float time = 100f;
     private float selectCountdown;
     // Start is called before the first frame update
-    void Start() 
+    void Start()
     {
         timerTxt = GetComponent<Text>();
         selectCountdown = time;
@@ -17,7 +17,7 @@ public class TextTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Floor(selectCountdown) > 0)
+        if (Mathf.Floor(selectCountdown) > 0 && StartPanel.timeflag == true)
         {
             selectCountdown -= Time.deltaTime;
             timerTxt.text = "Time : " + Mathf.Floor(selectCountdown).ToString();

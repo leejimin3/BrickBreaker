@@ -15,7 +15,7 @@ public class SliderTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (slTimer.value > 0)
+        if (slTimer.value > 0 && StartPanel.timeflag == true)
         {
             slTimer.value -= Time.deltaTime;
         }
