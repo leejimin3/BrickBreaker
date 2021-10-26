@@ -24,6 +24,7 @@ public class GameOver : MonoBehaviour
                 Player.Control = false;
                 StartPanel.timeflag = false;
                 Gameover.SetActive(true);
+                Destroy(GameObject.Find("Cleartext"));
                 Player.Ballcount = 1;
             }
         }
